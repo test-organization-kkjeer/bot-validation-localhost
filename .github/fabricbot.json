@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "taskType": "trigger",
+    "capabilityId": "IssueResponder",
+    "subCapability": "IssueCommentResponder",
+    "version": "1.0",
+    "config": {
+      "conditions": {
+        "operator": "and",
+        "operands": [
+          {
+            "name": "commentContains",
+            "parameters": {
+              "commentPattern": "Hello!"
+            }
+          }
+        ]
+      },
+      "eventType": "issue",
+      "eventNames": [
+        "issue_comment"
+      ],
+      "taskName": "Respond to hello",
+      "actions": [
+        {
+          "name": "addReply",
+          "parameters": {
+            "comment": "Hello ${contextualAuthor}"
+          }
+        }
+      ]
+    }
+  }
+]
